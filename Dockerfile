@@ -13,5 +13,5 @@ VOLUME ['/usr/app/video']
 
 WORKDIR /usr/app/
 
-CMD ["./start-to-know.sh"]
+CMD ["bash"]
 
