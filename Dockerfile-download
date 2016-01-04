@@ -1,0 +1,14 @@
+FROM python:2.7
+MAINTAINER David Li <legendarilylwq@gmail.com>
+
+RUN pip install youtube-dl
+
+COPY yt-download.sh /usr/app/yt-download.sh
+RUN chmod +x /usr/app/yt-download.sh
+
+VOLUME ['/usr/app/video']
+
+WORKDIR /usr/app/
+
+CMD ["bash"]
+
