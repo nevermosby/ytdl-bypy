@@ -1,0 +1,16 @@
+FROM python:2.7
+MAINTAINER David Li <legendarilylwq@gmail.com>
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update -qq && apt-get install -y nfs-common inotify-tools -qq
+
+RUN pip install requests
+RUN git clone https://github.com/nevermosby/bypy.git /usr/app/bypy
+RUN cp /usr/app/bypy/bypy.py /usr/local/bin/
+
+COPY by-upload.sh /usr/app/by-upload.sh
+RUN chmod +x /usr/app/by-upload.sh
+
+WORKDIR /usr/app/
+
+CMD ["bash"]
+
